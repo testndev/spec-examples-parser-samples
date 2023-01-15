@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "test": " npx playwright test"
+    "test": " npx playwright test --retries 2 --reporter html ; npx playwright show-report"
   },
   "author": {
     "email": "alhusaine@testndev.com",
