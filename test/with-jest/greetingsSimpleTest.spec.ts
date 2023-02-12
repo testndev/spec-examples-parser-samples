@@ -1,5 +1,5 @@
 import { describe, expect, test } from '@jest/globals';
-import { greetings } from '../src/greetings';
+import { greetings } from '../../src/greetings';
 
 // simple tests, with single example each
 describe(`Our_App is able to greet customers (sample with Jest)`, () => {

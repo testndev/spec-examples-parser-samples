@@ -1,6 +1,6 @@
 import { describe, expect, test } from '@jest/globals';
 import { SpecExamplesParser as examples } from '@testndev/spec-examples-parser';
-import { greetings } from '../src/greetings';
+import { greetings } from '../../src/greetings';
 
 describe(`Our_App is able to greet customers (sample with Jest & SpecExamplesParser for examples)`, () => {
 

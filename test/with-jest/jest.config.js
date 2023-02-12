@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /** @type {import('ts-jest').JestConfigWithTsJest} */
 module.exports = {
   preset: "ts-jest",
@@ -5,7 +6,7 @@ module.exports = {
   reporters: [
     "summary",
     [
-      "./node_modules/jest-html-reporter",
+      "../../node_modules/jest-html-reporter",
       {
         pageTitle: "Test Report",
       },
