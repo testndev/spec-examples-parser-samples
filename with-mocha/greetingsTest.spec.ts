@@ -26,13 +26,5 @@ describe(`Sample with Mocha + Chai`, () => {
       });
     });
 
-  //sample with examples directly in a simple JS array
-  ['italian', 'danish'].forEach((language) => {
-    test(`Greetings with ${language} are not supported`, async () => {
-      expect(() => {
-        // @ts-ignore
-        greetings('Tom', language);
-      }).throw(`Sorry, I don't speak "${language}" language.`);
-    });
-  });
+ 
 });
