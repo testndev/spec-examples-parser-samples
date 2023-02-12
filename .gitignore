@@ -1,9 +1,11 @@
 # Temporary directories
 t[e]*mp
+dist
 
 # Tests results/reports
 playwright-report
 test-results
+test-report*
 
 # Logs
 logs

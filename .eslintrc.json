@@ -1,0 +1,47 @@
+{
+  "root": true,
+  "env": {
+    "es6": true
+  },
+  "extends": [
+    "eslint:recommended"
+  ],
+  "parserOptions": {
+    "project": [
+      "./tsconfig.eslint.json"
+    ]
+  },
+  "overrides": [
+    {
+      "files": "**/*.ts",
+      "plugins": [
+        "@typescript-eslint"
+      ],
+      "extends": [
+        "plugin:@typescript-eslint/recommended"
+      ]
+    },
+    {
+      "files": "test/with-playwright/**/*.ts",
+      "extends": [
+        "plugin:playwright/playwright-test"
+      ]
+    },
+    {
+      "files": "test/with-ts-mocha/**/*.ts",
+      "extends": [
+        "plugin:mocha/recommended"
+      ]
+    },
+    {
+      "files": "test/with-js-mocha/**/*.js",
+      "rules": {
+        "mocha/no-setup-in-describe": "off",
+        "no-undef": "off"
+      },
+      "extends": [
+        "plugin:mocha/recommended"
+      ]
+    }
+  ]
+}
