@@ -37,7 +37,7 @@ function cleanName(name: string) {
  * @param language the language spoken by this person
  * @returns 
  */
-export function greetings(name?: string, language: string = 'english') {
+export function greetings(name?: string, language = 'english') {
   if (isSupportedLanguage(language)) {
     if (name && cleanName(name)) {
       return greetingsPhrases[language].named.replace(nameTag, cleanName(name))
