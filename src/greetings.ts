@@ -1,4 +1,31 @@
-type SupportedLanguage = 'french' | 'spanish' | 'english';
+const anonymousNames = ['', 'null', 'anonymous', 'undefined'];
+
+const nameTag = '<_NAME_>';
+const greetingsPhrases = {
+  french: { anonymous: 'Bonjour à vous !', named: `Bonjour ${nameTag} !` },
+  spanish: { anonymous: '¡Hola!', named: `¡Hola ${nameTag}!` },
+  english: { anonymous: 'Hello there!', named: `Hello ${nameTag}!` }
+}
+
+const supportedLanguages = Object.keys(greetingsPhrases);
+
+function isSupportedLanguage(languageName: string) {
+  return languageName && supportedLanguages.includes(`${languageName}`.toLowerCase())
+}
+
+/**
+ * Remove trimming space, set first letter in uppercase, and all other in lowercase
+ * default name is ''
+ * @param name 
+ * @returns 
+ */
+function cleanName(name: string) {
+  const trimmedName = `${name}`.trim();
+  if (anonymousNames.includes(trimmedName.toLowerCase())) {
+    return '';
+  }
+  return trimmedName[0].toUpperCase() + trimmedName.substring(1).toLowerCase();
+}
 
 /**
  * A function that politely greets people.
@@ -10,16 +37,15 @@ type SupportedLanguage = 'french' | 'spanish' | 'english';
  * @param language the language spoken by this person
  * @returns 
  */
-export function greetings(name: string, language: SupportedLanguage = 'english') {
-  let formattedName = name[0].toUpperCase() + name.substring(1).toLowerCase();
-  switch (language) {
-    case 'french':
-      return `Bonjour ${formattedName} !`;
-    case 'spanish':
-      return `¡Hola ${formattedName}!`;
-    case 'english':
-      return `Hello ${formattedName}!`;
-    default:
-      throw Error(`Sorry, I don't speak "${language}" language.`);
+export function greetings(name?: string, language: string = 'english') {
+  if (isSupportedLanguage(language)) {
+    if (name && cleanName(name)) {
+      return greetingsPhrases[language].named.replace(nameTag, cleanName(name))
+    }
+    return greetingsPhrases[language].anonymous;
+  }
+  else {
+    const errorMessage = `Sorry, I don't speak ${language}. Supported languages are: ${supportedLanguages.join(', ')}.`
+    throw Error(errorMessage);
   }
 }
