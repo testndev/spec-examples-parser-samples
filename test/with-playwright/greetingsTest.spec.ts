@@ -1,8 +1,8 @@
 import { test, expect } from '@playwright/test';
-import { SpecExamplesParser as examples } from '@testndev/spec-examples-parser';
+import { from } from '@testndev/spec-examples-parser';
 import { greetings } from '../../src/greetings';
 
-const examplesTable = examples.from(`
+const examplesTable = from(`
   name      | language | greetingWord | expectedPhrase
   BOB       | french   | Bonjour      | "Bonjour Bob !"
   Sébastien | french   | Bonjour      | "Bonjour Sébastien !"

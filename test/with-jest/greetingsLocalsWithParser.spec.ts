@@ -1,11 +1,11 @@
 import { describe, expect, test } from '@jest/globals';
-import { SpecExamplesParser as examples } from '@testndev/spec-examples-parser';
+import { from } from '@testndev/spec-examples-parser';
 import { greetings } from '../../src/greetings';
 
 describe(`Our_App is able to greet customers (sample with Jest & SpecExamplesParser for examples)`, () => {
 
   describe(`local greetings formats`, () => {
-    examples.from(`
+    from(`
         name      | language | greetingWord | expectedPhrase
         Sébastien | french   | Bonjour      | "Bonjour Sébastien !"
         édouard   | english  | Hello        | Hello Édouard!
@@ -21,7 +21,7 @@ describe(`Our_App is able to greet customers (sample with Jest & SpecExamplesPar
   });
 
   describe('specific phrases for anonymous', () => {
-    examples.from(`
+    from(`
         name        | language | expectedPhrase
         $undefined  | french   | "Bonjour à vous !"
         "undefined" | french   | "Bonjour à vous !"
